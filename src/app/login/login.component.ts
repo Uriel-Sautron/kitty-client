@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router, private http: HttpClient) {}
 
   ngOnInit() {
-    // sessionStorage.setItem('token', '');
+    sessionStorage.setItem('token', '');
   }
 
   login() {
@@ -33,11 +33,11 @@ export class LoginComponent implements OnInit {
       .subscribe((isValid) => {
         console.log(isValid);
         if (isValid) {
-          // sessionStorage.setItem(
-          //   'token',
-          //   btoa(this.model.username + ':' + this.model.password)
-          // );
-          this.router.navigate(['chat']);
+          sessionStorage.setItem(
+            'token',
+            btoa(this.model.username + ':' + this.model.password)
+          );
+          // this.router.navigate(['chat']);
         } else {
           alert('Authentication failed.');
         }

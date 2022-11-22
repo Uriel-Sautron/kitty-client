@@ -1,6 +1,8 @@
 <ul>
   <li>
-    <img src="../assets/images/logo_lettres_kitty.png" alt="kitty" />
+    <a [routerLink]="['/chat']">
+      <img src="../assets/images/logo_lettres_kitty.png" alt="kitty"
+    /></a>
   </li>
   <li>
     <a [routerLink]="['/register']">
@@ -13,7 +15,7 @@
     </a>
   </li>
   <li>
-    <button type="button">logout</button>
+    <button type="button" (click)="logout()">logout</button>
   </li>
   <li>
     <img src="../assets//images/logo_kitty.png" alt="logo" />

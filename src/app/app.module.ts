@@ -10,6 +10,7 @@ import { ChatComponent } from './chat/chat.component';
 import { RouterModule } from '@angular/router';
 import { ROUTES } from './app.routes';
 import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { LoginComponent } from './login/login.component';
     RegisterComponent,
     ChatComponent,
     LoginComponent,
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,

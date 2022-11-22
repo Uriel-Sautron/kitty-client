@@ -33,7 +33,12 @@ export class RegisterComponent implements OnInit {
     };
     this.http
       .post('http://localhost:8080/api/register', newUser, {
-        headers: new HttpHeaders({ 'Acces-Control-Allow-Origin': '*' }),
+        headers: new HttpHeaders({
+          'Acces-Control-Allow-Origin': 'http://localhost:8080',
+          'Access-Control-Allow-Methods': 'GET,POST,PATCH,DELETE,PUT,OPTIONS',
+          'Access-Control-Allow-Headers':
+            'Origin, Content-Type, X-Auth-Token, content-type, Authorization',
+        }),
       })
       .subscribe((Response) => {
         console.log(Response);
