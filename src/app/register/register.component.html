@@ -1,0 +1,63 @@
+<form
+  #myForm="ngForm"
+  (ngSubmit)="
+    !samePassword(user.password, user.passwordConfirm) &&
+      myForm.valid &&
+      onSubmit()
+  "
+>
+  <fieldset>
+    <label for="username">pseudo</label>
+    <input
+      id="username"
+      name="username"
+      [(ngModel)]="user.username"
+      #username="ngModel"
+      type="text"
+      required
+    />
+  </fieldset>
+  <div *ngIf="myForm.submitted && username.errors">
+    <span *ngIf="username.errors['required']">le pseudo est requis</span>
+  </div>
+  <fieldset>
+    <label for="password">password</label>
+    <input
+      id="password"
+      name="password"
+      [(ngModel)]="user.password"
+      #password="ngModel"
+      type="password"
+      required
+    />
+  </fieldset>
+  <div *ngIf="myForm.submitted && password.errors">
+    <span *ngIf="password.errors['required']">le mot de passe est requis</span>
+  </div>
+  <fieldset>
+    <label for="passwordConfirm">confirm</label>
+    <input
+      id="passwordConfirm"
+      name="passwordConfirm"
+      [(ngModel)]="user.passwordConfirm"
+      #passwordConfirm="ngModel"
+      type="password"
+      required
+    />
+  </fieldset>
+  <div
+    *ngIf="
+      myForm.submitted &&
+      (passwordConfirm.errors ||
+        samePassword(user.password, user.passwordConfirm))
+    "
+  >
+    <span *ngIf="passwordConfirm.errors?.['required']"
+      >veuillez confirmer le mot de passe</span
+    >
+    <span *ngIf="password !== passwordConfirm">
+      les mots de passe sont différents
+    </span>
+  </div>
+  <button type="submit">register</button>
+</form>
