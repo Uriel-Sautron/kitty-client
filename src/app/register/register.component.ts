@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
       })
       .subscribe((Response) => {
         console.log(Response);
-        this.router.navigateByUrl('http://localhost:8080/login');
+        this.router.navigate(['/login']);
       });
   }
 
