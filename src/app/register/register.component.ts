@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { User } from '../model/user';
 interface NewUser {
   username: string;
@@ -13,7 +13,7 @@ interface NewUser {
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   user: User = new User('', '', '');
 
@@ -37,6 +37,7 @@ export class RegisterComponent implements OnInit {
       })
       .subscribe((Response) => {
         console.log(Response);
+        this.router.navigateByUrl('http://localhost:8080/login');
       });
   }
 
