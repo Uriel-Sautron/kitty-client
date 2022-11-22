@@ -114,6 +114,12 @@ app-root {
   align-items: center;
 }
 
+input {
+  border-style: none;
+  border: solid 1px black;
+  border-radius: 0.3rem;
+}
+
 button {
   border-style: none;
   border-radius: 1rem;
