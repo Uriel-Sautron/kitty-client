@@ -1,7 +1,23 @@
-#app {
+ul {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
+  height: 2rem;
+  padding: 3rem;
+
+  li {
+    padding: 1rem;
+
+    img {
+      width: 5rem;
+    }
+
+    button {
+      width: 5rem;
+
+      &:hover {
+        width: 7rem;
+      }
+    }
+  }
 }

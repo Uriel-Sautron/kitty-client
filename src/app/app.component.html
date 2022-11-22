@@ -1,1 +1,23 @@
-<app-register></app-register> <app-login></app-login>
+<ul>
+  <li>
+    <img src="../assets/images/logo_lettres_kitty.png" alt="kitty" />
+  </li>
+  <li>
+    <a [routerLink]="['/register']">
+      <button type="button">register</button>
+    </a>
+  </li>
+  <li>
+    <a [routerLink]="['/login']">
+      <button type="button">login</button>
+    </a>
+  </li>
+  <li>
+    <button type="button">logout</button>
+  </li>
+  <li>
+    <img src="../assets//images/logo_kitty.png" alt="logo" />
+  </li>
+</ul>
+
+<router-outlet></router-outlet>

@@ -105,3 +105,21 @@ input {
   -webkit-appearance: none;
   border-radius: 0;
 }
+
+app-root {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
+  border-style: none;
+  border-radius: 1rem;
+  background-color: black;
+  color: white;
+  padding: 0.4rem;
+  font-size: large;
+  transition: width 0.5s;
+}
