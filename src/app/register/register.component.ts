@@ -16,6 +16,10 @@ export class RegisterComponent implements OnInit {
     return password !== passwordConfirm;
   }
 
+  minMaxUsername(username: string) {
+    return username.length < 3 || username.length > 10;
+  }
+
   onSubmit(): void {
     console.log(this.user);
   }
