@@ -8,7 +8,7 @@ import { Message } from '../model/Message';
   styleUrls: ['./chatbox.component.scss'],
 })
 export class ChatboxComponent implements OnInit {
-  me: InlineUser = new InlineUser('yoh');
+  me: InlineUser = new InlineUser(sessionStorage.getItem('username'));
 
   message1: Message = new Message('coucou', 'roderick');
   message2: Message = new Message('ça va?', 'roger');

@@ -1,3 +1,3 @@
 export class Message {
-  constructor(public content: string, public author: string) {}
+  constructor(public content: string, public author: string | null) {}
 }

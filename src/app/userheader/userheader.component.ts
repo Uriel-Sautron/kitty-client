@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Tracing } from 'trace_events';
 import { InlineUser } from '../model/InlineUser';
 
 @Component({
@@ -7,7 +8,7 @@ import { InlineUser } from '../model/InlineUser';
   styleUrls: ['./userheader.component.scss'],
 })
 export class UserheaderComponent implements OnInit {
-  me: InlineUser = new InlineUser('yoh');
+  me: InlineUser = new InlineUser(sessionStorage.getItem('username'));
 
   constructor() {}
 
