@@ -8,10 +8,6 @@ import { InlineUser } from '../model/InlineUser';
   styleUrls: ['./userlist.component.scss'],
 })
 export class UserlistComponent implements OnInit {
-  roger: InlineUser = new InlineUser('roger');
-  robert: InlineUser = new InlineUser('robert');
-  roderick: InlineUser = new InlineUser('roderick');
-
   userList: InlineUser[] = [];
 
   constructor(private http: HttpClient) {}

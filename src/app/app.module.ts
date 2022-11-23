@@ -14,7 +14,11 @@ import { LogoutComponent } from './logout/logout.component';
 import { ChatboxComponent } from './chatbox/chatbox.component';
 import { UserheaderComponent } from './userheader/userheader.component';
 import { UserlistComponent } from './userlist/userlist.component';
-import { EditorComponent } from './editor/editor.component';
+import { SocketMessageListComponent } from './socket-message-list/socket-message-list.component';
+import { SocketMessageComponent } from './socket-message/socket-message.component';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+
+const config: SocketIoConfig = { url: 'ws://192.168.1.13:8085', options: {} };
 
 @NgModule({
   declarations: [
@@ -26,7 +30,8 @@ import { EditorComponent } from './editor/editor.component';
     ChatboxComponent,
     UserheaderComponent,
     UserlistComponent,
-    EditorComponent,
+    SocketMessageListComponent,
+    SocketMessageComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,6 +39,7 @@ import { EditorComponent } from './editor/editor.component';
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot(ROUTES),
+    SocketIoModule.forRoot(config),
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,10 +1,34 @@
-<app-editor></app-editor>
+<form
+  #myForm="ngForm"
+  (ngSubmit)="
+    !minContent(currentMessage.content) &&
+      myForm.valid &&
+      newMessage({ content: currentMessage.content, author: me.username })
+  "
+>
+  <div class="content">
+    <fieldset>
+      <label for="newMessage"></label>
+      <input
+        id="newMessage"
+        name="newMessage"
+        [(ngModel)]="currentMessage.content"
+        #content="ngModel"
+        type="text"
+        minLength="1"
+        placeholder="new message (at least 1 character)...."
+      />
+    </fieldset>
+  </div>
+  <button type="submit">send</button>
+</form>
+
 <ul class="messages">
   <li
     [ngClass]="
       message.author === me.username ? 'messages_single me' : 'messages_single'
     "
-    *ngFor="let message of messageList"
+    *ngFor="let message of messages | async"
   >
     <span class="messages_single_author"
       ><span>{{ message.author }}</span> wrote:</span
