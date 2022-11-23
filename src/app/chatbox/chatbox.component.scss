@@ -1,0 +1,37 @@
+.messages {
+  width: 100%;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: end;
+
+  &_single {
+    width: 40%;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 0 1rem 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    background-color: darkgray;
+    color: rgb(31, 44, 44);
+
+    &_author {
+      margin-bottom: 0.5rem;
+      color: darkslategrey;
+      font-size: small;
+
+      span {
+        font-size: large;
+      }
+    }
+
+    &_content {
+      font-size: larger;
+    }
+  }
+
+  & .me {
+    margin-left: auto;
+    border-radius: 1rem 1rem 0 1rem;
+  }
+}

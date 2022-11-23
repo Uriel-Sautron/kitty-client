@@ -1,0 +1,17 @@
+.users {
+  width: 100%;
+  overflow-y: scroll;
+
+  &_single {
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 0.3rem;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(20, 65, 65);
+
+    &_name {
+      font-size: large;
+    }
+  }
+}

@@ -1,7 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -27,7 +26,9 @@ export class LoginComponent implements OnInit {
           password: this.model.password,
         },
         {
-          headers: new HttpHeaders({ 'Acces-Control-Allow-Origin': '*' }),
+          headers: new HttpHeaders({
+            'Acces-Control-Allow-Origin': '*',
+          }),
         }
       )
       .subscribe((isValid) => {

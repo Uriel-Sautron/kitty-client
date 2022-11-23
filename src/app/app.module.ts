@@ -11,6 +11,10 @@ import { RouterModule } from '@angular/router';
 import { ROUTES } from './app.routes';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
+import { ChatboxComponent } from './chatbox/chatbox.component';
+import { UserheaderComponent } from './userheader/userheader.component';
+import { UserlistComponent } from './userlist/userlist.component';
+import { EditorComponent } from './editor/editor.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +23,10 @@ import { LogoutComponent } from './logout/logout.component';
     ChatComponent,
     LoginComponent,
     LogoutComponent,
+    ChatboxComponent,
+    UserheaderComponent,
+    UserlistComponent,
+    EditorComponent,
   ],
   imports: [
     BrowserModule,

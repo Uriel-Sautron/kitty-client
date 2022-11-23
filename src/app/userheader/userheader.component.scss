@@ -1,0 +1,22 @@
+.userheader {
+  height: 15%;
+  width: 100%;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: darkslategrey;
+
+  h1 {
+    font-size: xx-large;
+  }
+
+  button {
+    width: 5rem;
+
+    &:hover {
+      width: 6rem;
+    }
+  }
+}

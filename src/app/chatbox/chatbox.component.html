@@ -1,0 +1,14 @@
+<app-editor></app-editor>
+<ul class="messages">
+  <li
+    [ngClass]="
+      message.author === me.username ? 'messages_single me' : 'messages_single'
+    "
+    *ngFor="let message of messageList"
+  >
+    <span class="messages_single_author"
+      ><span>{{ message.author }}</span> wrote:</span
+    >
+    <span class="messages_single_content">{{ message.content }}</span>
+  </li>
+</ul>
