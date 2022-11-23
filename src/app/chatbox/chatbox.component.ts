@@ -34,7 +34,7 @@ export class ChatboxComponent implements OnInit {
   me: InlineUser = new InlineUser(sessionStorage.getItem('username'));
 
   messages!: Observable<Message[]>;
-  currentMessage: Message = { message: '', author: '' };
+  currentMessage: Message = { type: '', message: '', room: 1, author: '' };
   private socketMessageSub?: Subscription;
 
   constructor(private socketMessageService: SocketMessageService) {}

@@ -1,3 +1,8 @@
 export class Message {
-  constructor(public message: string, public author: string | null) {}
+  constructor(
+    public type: string,
+    public message: string,
+    public room: number,
+    public author: string
+  ) {}
 }

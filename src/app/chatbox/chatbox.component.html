@@ -3,7 +3,12 @@
   (ngSubmit)="
     !minContent(currentMessage.message) &&
       myForm.valid &&
-      newMessage({ message: currentMessage.message, author: me.username })
+      newMessage({
+        type: 'CLIENT',
+        message: currentMessage.message,
+        room: 1,
+        author: currentMessage.author
+      })
   "
 >
   <div class="content">
