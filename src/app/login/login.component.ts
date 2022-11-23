@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
             'token',
             btoa(this.model.username + ':' + this.model.password)
           );
-          // this.router.navigate(['chat']);
+          this.router.navigate(['chat']);
         } else {
           alert('Authentication failed.');
         }

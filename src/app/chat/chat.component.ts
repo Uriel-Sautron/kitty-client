@@ -13,7 +13,7 @@ export class ChatComponent implements OnInit {
     const token: string | null = sessionStorage.getItem('token');
     console.log(token);
     this.http
-      .get('http://localhost:8080/api/user', {
+      .get('http://localhost:8080/api/users', {
         headers: new HttpHeaders({
           'Acces-Control-Allow-Origin': '*',
           'Access-Control-Allow-Credentials': 'true',
