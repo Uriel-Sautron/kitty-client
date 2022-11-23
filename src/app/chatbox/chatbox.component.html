@@ -1,9 +1,9 @@
 <form
   #myForm="ngForm"
   (ngSubmit)="
-    !minContent(currentMessage.content) &&
+    !minContent(currentMessage.message) &&
       myForm.valid &&
-      newMessage({ content: currentMessage.content, author: me.username })
+      newMessage({ message: currentMessage.message, author: me.username })
   "
 >
   <div class="content">
@@ -12,7 +12,7 @@
       <input
         id="newMessage"
         name="newMessage"
-        [(ngModel)]="currentMessage.content"
+        [(ngModel)]="currentMessage.message"
         #content="ngModel"
         type="text"
         minLength="1"
@@ -33,6 +33,6 @@
     <span class="messages_single_author"
       ><span>{{ message.author }}</span> wrote:</span
     >
-    <span class="messages_single_content">{{ message.content }}</span>
+    <span class="messages_single_content">{{ message.message }}</span>
   </li>
 </ul>

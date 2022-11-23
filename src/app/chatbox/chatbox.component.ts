@@ -34,13 +34,17 @@ export class ChatboxComponent implements OnInit {
   me: InlineUser = new InlineUser(sessionStorage.getItem('username'));
 
   messages!: Observable<Message[]>;
-  currentMessage: Message = { content: '', author: '' };
+  currentMessage: Message = { message: '', author: '' };
   private socketMessageSub?: Subscription;
 
   constructor(private socketMessageService: SocketMessageService) {}
 
   newMessage(message: Message) {
     this.socketMessageService.newSocketMessage(message);
+  }
+
+  loadMessage() {
+    this.socketMessageService.getSocketMessage();
   }
 
   minContent(content: string) {
@@ -53,5 +57,6 @@ export class ChatboxComponent implements OnInit {
       this.socketMessageService.currentSocketMessage.subscribe(
         (message) => (this.currentMessage = message)
       );
+    this.loadMessage();
   }
 }
