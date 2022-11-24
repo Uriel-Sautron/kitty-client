@@ -8,11 +8,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./logout.component.scss'],
 })
 export class LogoutComponent implements OnInit {
-  constructor(private router: Router, private http: HttpClient) {}
+  constructor(private router: Router) {}
 
-  ngOnInit(): void {
-    this.http.post('http://localhost:8080/logout', null, {
-      headers: new HttpHeaders({ 'Acces-Control-Allow-Origin': '*' }),
-    });
+  logout() {
+    sessionStorage.clear();
   }
+
+  ngOnInit(): void {}
 }

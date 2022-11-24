@@ -10,7 +10,7 @@ export class SocketMessageService {
 
   public socketState() {
     this.socket.on('connect', () => {
-      console.log(this.socket.connected);
+      console.log('connect: ', this.socket.connected);
     });
     this.socket.on('disconnect', () => {
       console.log(this.socket.connected);
@@ -18,6 +18,11 @@ export class SocketMessageService {
     this.socket.on('connect_error', (error: { name: any }) => {
       console.log(error.name);
     });
+    console.log(this.socket);
+  }
+
+  public isConnected(): boolean {
+    return this.socket.connected;
   }
 
   public newSocketMessage(message: Message) {
@@ -28,6 +33,18 @@ export class SocketMessageService {
     return new Observable((observer) => {
       this.socket.on('chatevent', (message: Message) => {
         observer.next(message);
+      });
+    });
+  };
+
+  public newIsonline(name: String | null) {
+    this.socket.emit('online', name);
+  }
+
+  public getIsOnline = () => {
+    return new Observable((observer) => {
+      this.socket.on('online', (name: string | null) => {
+        observer.next(name);
       });
     });
   };

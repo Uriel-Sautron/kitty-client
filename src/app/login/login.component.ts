@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router, private http: HttpClient) {}
 
   ngOnInit() {
-    sessionStorage.setItem('token', '');
+    sessionStorage.clear();
   }
 
   login() {

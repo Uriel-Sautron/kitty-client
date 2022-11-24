@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { InlineUser } from '../model/InlineUser';
+import { SocketMessageService } from '../service/socket-message.service';
 
 @Component({
   selector: 'app-userlist',
@@ -8,13 +9,20 @@ import { InlineUser } from '../model/InlineUser';
   styleUrls: ['./userlist.component.scss'],
 })
 export class UserlistComponent implements OnInit {
+  me: InlineUser = new InlineUser(sessionStorage.getItem('username'));
+  name: string | null = this.me.username;
   userList: InlineUser[] = [];
+  connectedUserList: String[] = [];
+  connected: boolean = this.socketMessageService.isConnected();
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private socketMessageService: SocketMessageService
+  ) {}
 
   ngOnInit(): void {
+    console.log('connected: ', this.connected);
     const token: string | null = sessionStorage.getItem('token');
-    console.log(token);
     this.http
       .get('http://localhost:8080/api/users', {
         headers: new HttpHeaders({
@@ -25,5 +33,12 @@ export class UserlistComponent implements OnInit {
         }),
       })
       .subscribe((Response) => (this.userList = Response as InlineUser[]));
+
+    this.socketMessageService.newIsonline(this.name);
+
+    this.socketMessageService.getIsOnline().subscribe((data: any) => {
+      console.log('username: ', data);
+      this.connectedUserList.push(data);
+    });
   }
 }
