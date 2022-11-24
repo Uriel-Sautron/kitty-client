@@ -10,8 +10,9 @@ import { SocketMessageService } from '../service/socket-message.service';
 })
 export class ChatboxComponent implements OnInit {
   me: InlineUser = new InlineUser(sessionStorage.getItem('username'));
+  name: string | null = this.me.username;
   messages: Message[] = [];
-  currentMessage: Message = { message: '', author: this.me.username };
+  currentMessage: Message = { message: '', author: this.name };
 
   constructor(private socketMessageService: SocketMessageService) {}
 
@@ -22,7 +23,7 @@ export class ChatboxComponent implements OnInit {
   sendMessage() {
     console.log('current message: ', this.currentMessage);
     this.socketMessageService.newSocketMessage(this.currentMessage);
-    this.currentMessage = { message: '', author: '' };
+    this.currentMessage = { message: '', author: this.name };
   }
 
   ngOnInit() {
