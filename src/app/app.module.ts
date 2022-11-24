@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
@@ -16,9 +15,7 @@ import { UserheaderComponent } from './userheader/userheader.component';
 import { UserlistComponent } from './userlist/userlist.component';
 import { SocketMessageListComponent } from './socket-message-list/socket-message-list.component';
 import { SocketMessageComponent } from './socket-message/socket-message.component';
-import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
-
-const config: SocketIoConfig = { url: 'ws://192.168.1.13:8085', options: {} };
+import { SocketMessageService } from './service/socket-message.service';
 
 @NgModule({
   declarations: [
@@ -39,9 +36,8 @@ const config: SocketIoConfig = { url: 'ws://192.168.1.13:8085', options: {} };
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot(ROUTES),
-    SocketIoModule.forRoot(config),
   ],
-  providers: [],
+  providers: [SocketMessageService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

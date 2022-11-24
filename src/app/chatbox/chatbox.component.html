@@ -1,14 +1,7 @@
 <form
   #myForm="ngForm"
   (ngSubmit)="
-    !minContent(currentMessage.message) &&
-      myForm.valid &&
-      newMessage({
-        type: 'CLIENT',
-        message: currentMessage.message,
-        room: 1,
-        author: currentMessage.author
-      })
+    !minContent(currentMessage.message) && myForm.valid && sendMessage()
   "
 >
   <div class="content">
@@ -33,7 +26,7 @@
     [ngClass]="
       message.author === me.username ? 'messages_single me' : 'messages_single'
     "
-    *ngFor="let message of messages | async"
+    *ngFor="let message of messages"
   >
     <span class="messages_single_author"
       ><span>{{ message.author }}</span> wrote:</span

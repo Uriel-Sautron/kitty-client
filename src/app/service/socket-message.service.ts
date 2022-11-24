@@ -1,30 +1,34 @@
-import { Injectable } from '@angular/core';
-import { Socket } from 'ngx-socket-io';
+import { Observable } from 'rxjs';
 import { Message } from '../model/Message';
-import { SocketMessage } from '../model/socket-message.model';
-
-@Injectable({
-  providedIn: 'root',
-})
 export class SocketMessageService {
-  currentSocketMessage = this.socket.fromEvent<Message>('socketMessage');
-  socketMessage = this.socket.fromEvent<Message[]>('socketMessage');
+  private url = 'http://localhost:8085';
+  private socket;
 
-  constructor(private socket: Socket) {}
-
-  // getSocketMessage() {
-  //   this.socket.emit('getSocketMessage');
-  // }
-
-  // newSocketMessage(message: Message) {
-  //   this.socket.emit('addSocketMessage', message);
-  // }
-
-  getSocketMessage() {
-    this.socket.emit('get_message');
+  constructor() {
+    this.socket = require('socket.io-client')(this.url);
   }
 
-  newSocketMessage(message: Message) {
-    this.socket.emit('send_message', message);
+  public socketState() {
+    this.socket.on('connect', () => {
+      console.log(this.socket.connected);
+    });
+    this.socket.on('disconnect', () => {
+      console.log(this.socket.connected);
+    });
+    this.socket.on('connect_error', (error: { name: any }) => {
+      console.log(error.name);
+    });
   }
+
+  public newSocketMessage(message: Message) {
+    this.socket.emit('chatevent', message);
+  }
+
+  public getSocketMessage = () => {
+    return new Observable((observer) => {
+      this.socket.on('chatevent', (message: Message) => {
+        observer.next(message);
+      });
+    });
+  };
 }
