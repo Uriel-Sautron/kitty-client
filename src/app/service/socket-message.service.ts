@@ -1,11 +1,13 @@
 import { Observable } from 'rxjs';
 import { Message } from '../model/Message';
 export class SocketMessageService {
-  private url = 'https://kitty--server.herokuapp.com/';
+  private url = 'https://kitty--server.herokuapp.com';
   private socket;
 
   constructor() {
-    this.socket = require('socket.io-client')(this.url);
+    this.socket = require('socket.io-client')(this.url, {
+      secure: true,
+    });
   }
 
   public socketState() {
