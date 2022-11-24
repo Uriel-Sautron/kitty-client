@@ -32,9 +32,9 @@ export class RegisterComponent implements OnInit {
       password: this.user.password,
     };
     this.http
-      .post('http://localhost:8080/api/register', newUser, {
+      .post('https://kitty--server.herokuapp.com/api/register', newUser, {
         headers: new HttpHeaders({
-          'Acces-Control-Allow-Origin': 'http://localhost:8080',
+          'Acces-Control-Allow-Origin': 'https://kitty--server.herokuapp.com/',
           'Access-Control-Allow-Methods': 'GET,POST,PATCH,DELETE,PUT,OPTIONS',
           'Access-Control-Allow-Headers':
             'Origin, Content-Type, X-Auth-Token, content-type, Authorization',

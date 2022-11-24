@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     console.log(this.model);
     this.http
       .post(
-        'http://localhost:8080/api/login',
+        'https://kitty--server.herokuapp.com/api/login',
         {
           username: this.model.username,
           password: this.model.password,

@@ -24,7 +24,7 @@ export class UserlistComponent implements OnInit {
     console.log('connected: ', this.connected);
     const token: string | null = sessionStorage.getItem('token');
     this.http
-      .get('http://localhost:8080/api/users', {
+      .get('https://kitty--server.herokuapp.com/api/users', {
         headers: new HttpHeaders({
           'Acces-Control-Allow-Origin': '*',
           'Access-Control-Allow-Credentials': 'true',

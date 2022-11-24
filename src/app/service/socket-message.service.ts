@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs';
 import { Message } from '../model/Message';
 export class SocketMessageService {
-  private url = 'http://localhost:8085';
+  private url = 'https://kitty--server.herokuapp.com/';
   private socket;
 
   constructor() {
