@@ -1,3 +1,4 @@
+import { readFileSync } from 'fs';
 import { Observable } from 'rxjs';
 import { Message } from '../model/Message';
 export class SocketMessageService {
@@ -8,6 +9,8 @@ export class SocketMessageService {
     this.socket = require('socket.io-client')(this.url, {
       secure: true,
       withCredential: true,
+      rejectUnauthorized: false,
+      cert: readFileSync('myCertificate.crt'),
     });
   }
 
