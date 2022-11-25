@@ -7,6 +7,7 @@ export class SocketMessageService {
   constructor() {
     this.socket = require('socket.io-client')(this.url, {
       secure: true,
+      withCredential: true,
     });
   }
 
