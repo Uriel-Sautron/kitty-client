@@ -10,7 +10,8 @@ export class SocketMessageService {
       secure: true,
       withCredential: true,
       rejectUnauthorized: false,
-      cert: readFileSync('myCertificate.crt'),
+      key: readFileSync('newfile.key.pem'),
+      cert: readFileSync('newfile.crt.pem'),
     });
   }
 
